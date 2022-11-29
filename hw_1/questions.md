@@ -1,0 +1,32 @@
+- Chapter 2:
+  - Q3
+    - 435 = 29 + 28 .... + 1
+  - Q4
+    - Yes
+  - Q6
+    - No there could be other vulnerabilities in how the encryption scheme deviates from the ideal implmentation
+  - Q7
+    - 256 but why
+  - Find RSA standard
+    - https://ieeexplore.ieee.org/document/7987922
+  - Find two libraries for each of RSA, TLS/SSL, and AEAD. Evaluate the maturity each library, and skim the code. What about the library structure makes sense? How is their documentation? These links may help:
+    - RSA
+      - https://github.com/rustcrypto/rsa/tree/5c2f1e33aa859c86e5ea8c8b1121a104f98caa6a/
+        - Mature
+        - Has links
+      - https://github.com/hakhenaton/rsa-oaep-pss/tree/4254674266d356fd1f60c95c04ef0ed1ab82491f/
+        - Not mature no audit
+    - TLS/SSL
+      - https://lib.rs/crates/hyper-tls
+        - Looks well maintained
+      - https://github.com/hyperium/hyper-tls
+        - Looks to be popular
+        - Doesn't have a lot of changes recently
+    - AEAD
+      - https://github.com/rustcrypto/traits/tree/4d2a23d92eb84739771ed92f29098c978812fb7f/aead
+      - https://github.com/rustcrypto/aeads/tree/1558527346c4ab76a7c1c34feef56cc7d467dd05/aes-gcm
+  - Benchmark the speed of an algorithm in the two different implementations with [Criterion](https://lib.rs/crates/criterion)
+  - You want to understand a paper on a new polynomial commitment scheme, but you've been trying for more than an hour, and the math is over your head. What do you do
+    - Search youtube, or google for individual explanations of each of the math issues?
+  - What is a side channel attack? Is your cipher implementation constant time?
+    - No, it is when someone can get information about your algorithm. One example is if the algorithm takes longer for different inputs. Based on the execution time we can maybe figure out what the input is.
