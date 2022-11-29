@@ -4,14 +4,11 @@ use anyhow::Result;
 
 // Can only handle A-za-z
 pub fn encrypt<'a>(msg: &'a str, key: &'a str) -> Result<String> {
-    // 1. iterate through the msg and shift
-    // 2. position + 1 % length should give the value of the key
     let key_length = key.len();
     let char_indices = msg.char_indices();
     let mut encrypted_str = "".to_string();
     for (pos, ch) in char_indices {
         let shifted_key_str;
-        println!("{}", pos);
         if pos < key_length {
             shifted_key_str = match key.get(pos..pos + 1) {
                 None => "",
@@ -24,7 +21,6 @@ pub fn encrypt<'a>(msg: &'a str, key: &'a str) -> Result<String> {
                 Some(char) => char,
             };
         };
-        println!("{}", shifted_key_str);
         let shifted_key_char = match shifted_key_str.chars().next() {
             None => '❤',
             Some(char) => char,
